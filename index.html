@@ -7,19 +7,19 @@
   <meta name="description" content="Learn how Pittsford residents can spot and avoid common holiday scams, and where to get help if you think you have been scammed." />
   <style>
     :root {
-      --bg: #0f172a;
-      --bg-soft: #111827;
-      --card: #020617;
-      --accent: #22c55e;
-      --accent-soft: rgba(34, 197, 94, 0.15);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: #1f2937;
-      --warning: #f97316;
-      --danger: #ef4444;
+      --bg: #f3f4f6;
+      --bg-soft: #e5e7eb;
+      --card: #ffffff;
+      --accent: #2563eb;        /* blue */
+      --accent-soft: #dbeafe;   /* soft blue background */
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+      --warning: #ea580c;
+      --danger: #b91c1c;
       --radius-lg: 16px;
       --radius-xl: 24px;
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
     }
 
     * {
@@ -30,7 +30,7 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 52%);
+      background: radial-gradient(circle at top, #eff6ff 0, #f3f4f6 55%);
       color: var(--text-main);
       line-height: 1.6;
     }
@@ -52,21 +52,15 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #4ade80, #16a34a 40%, #0f172a 100%);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
-      font-size: 18px;
-      font-weight: 700;
-      color: #ecfdf5;
+    .logo-img {
+      width: 60px;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      background: #fff;
     }
 
     .logo-text-title {
@@ -93,28 +87,28 @@
       border-radius: 999px;
       border: 1px solid transparent;
       transition: all 0.15s ease-out;
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(255, 255, 255, 0.9);
     }
 
     nav a:hover {
-      color: #e5e7eb;
-      border-color: rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.95);
+      color: var(--accent);
+      border-color: #cbd5f5;
+      background: #ffffff;
     }
 
     .hero {
       margin-top: 18px;
-      background: radial-gradient(circle at top left, #15803d, #020617 55%);
+      background: linear-gradient(135deg, #e0f2fe, #eff6ff);
       border-radius: var(--radius-xl);
       padding: 20px 20px 22px;
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
       gap: 18px;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      border: 1px solid #dbeafe;
     }
 
-    .hero h1 {
+    .hero-title {
       font-size: 26px;
       margin: 0 0 10px;
       letter-spacing: 0.02em;
@@ -123,7 +117,7 @@
     .hero p {
       margin: 0 0 12px;
       font-size: 14px;
-      color: #e5e7eb;
+      color: #1f2933;
     }
 
     .hero-pill {
@@ -132,19 +126,19 @@
       gap: 8px;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #cbd5f5;
       font-size: 11px;
       color: var(--text-muted);
       margin-bottom: 8px;
     }
 
     .hero-pill-dot {
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
     }
 
     .hero-highlight {
@@ -158,32 +152,21 @@
     .hero-highlight span {
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #e5e7eb;
       color: var(--text-muted);
     }
 
     .hero-card {
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(255, 255, 255, 0.96);
       border-radius: var(--radius-lg);
       padding: 14px 14px 12px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      border: 1px solid #dbeafe;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
       overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -50%;
-      background:
-        radial-gradient(circle at 0 0, rgba(52, 211, 153, 0.25), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(248, 250, 252, 0.18), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
     }
 
     .hero-card-inner {
@@ -198,15 +181,16 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      color: #0f172a;
     }
 
     .hero-chip {
       font-size: 10px;
       padding: 2px 8px;
       border-radius: 999px;
-      background: rgba(22, 101, 52, 0.85);
-      color: #bbf7d0;
-      border: 1px solid rgba(74, 222, 128, 0.7);
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
     }
 
     .hero-card ul {
@@ -231,8 +215,8 @@
     .hero-badge {
       padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #eef2ff;
+      border: 1px solid #e0e7ff;
     }
 
     .layout-main {
@@ -243,11 +227,11 @@
     }
 
     .card {
-      background: rgba(15, 23, 42, 0.98);
+      background: var(--card);
       border-radius: var(--radius-lg);
       padding: 16px 16px 14px;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
     }
 
     .card + .card {
@@ -281,17 +265,17 @@
     }
 
     .story {
-      background: rgba(15, 23, 42, 0.95);
+      background: #f9fafb;
       border-radius: 12px;
       padding: 10px 12px 10px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
+      border: 1px solid #e5e7eb;
       margin: 10px 0;
     }
 
     .story-label {
       font-size: 11px;
       font-weight: 600;
-      color: #a5b4fc;
+      color: #6366f1;
       letter-spacing: 0.02em;
       text-transform: uppercase;
       margin-bottom: 3px;
@@ -325,9 +309,9 @@
     .pill {
       padding: 3px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
+      border: 1px solid #e5e7eb;
       color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.96);
+      background: #f9fafb;
     }
 
     .callout {
@@ -338,21 +322,21 @@
     }
 
     .callout.warning {
-      background: rgba(248, 250, 252, 0.02);
-      border: 1px solid rgba(249, 115, 22, 0.7);
-      color: #fed7aa;
+      background: #fffbeb;
+      border: 1px solid rgba(234, 88, 12, 0.4);
+      color: #9a3412;
     }
 
     .callout.danger {
-      background: rgba(248, 113, 113, 0.08);
-      border: 1px solid rgba(248, 113, 113, 0.9);
-      color: #fee2e2;
+      background: #fef2f2;
+      border: 1px solid rgba(185, 28, 28, 0.4);
+      color: #7f1d1d;
     }
 
     .callout.safe {
-      background: var(--accent-soft);
-      border: 1px solid rgba(34, 197, 94, 0.9);
-      color: #bbf7d0;
+      background: #ecfdf5;
+      border: 1px solid rgba(22, 163, 74, 0.4);
+      color: #166534;
     }
 
     .callout strong {
@@ -392,7 +376,7 @@
     }
 
     .resources-list a {
-      color: #bfdbfe;
+      color: #1d4ed8;
       text-decoration: none;
     }
 
@@ -403,7 +387,7 @@
     footer {
       margin-top: 20px;
       padding-top: 10px;
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      border-top: 1px solid #e5e7eb;
       font-size: 11px;
       color: var(--text-muted);
       display: flex;
@@ -411,6 +395,14 @@
       gap: 10px;
       justify-content: space-between;
       align-items: center;
+    }
+
+    footer img {
+      height: 36px;
+      width: auto;
+      border-radius: 6px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
     }
 
     @media (max-width: 840px) {
@@ -446,16 +438,24 @@
         align-items: flex-start;
       }
     }
+
+    /* Keep the main heading on one line for larger screens */
+    @media (min-width: 880px) {
+      .hero-title {
+        white-space: nowrap;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="page">
     <header class="site-header">
       <div class="logo">
-        <div class="logo-mark">PS</div>
+        <!-- Update the src if you use a different file name for the logo -->
+        <img src="pittsford-logo.jpg" alt="Town of Pittsford logo" class="logo-img" />
         <div>
-          <div class="logo-text-title">Pittsford Scam Watch</div>
-          <div class="logo-text-sub">Holiday safety guide for our community</div>
+          <div class="logo-text-title">Pittsford Holiday Scam Guide</div>
+          <div class="logo-text-sub">Helping Pittsford residents stay safe during the holidays</div>
         </div>
       </div>
       <nav>
@@ -473,9 +473,9 @@
       <div>
         <div class="hero-pill">
           <span class="hero-pill-dot"></span>
-          Holiday scams spike every November and December - stay a step ahead.
+          Holiday scams spike every November and December. Slow down and stay a step ahead.
         </div>
-        <h1>Holiday scams: a Pittsford guide to staying safe</h1>
+        <h1 class="hero-title">Holiday scams: a Pittsford guide to staying safe</h1>
         <p>
           The holiday season means busy schedules, online shopping, travel, year-end donations,
           and packages on every porch. Scammers know this and they target people in communities
@@ -539,7 +539,7 @@
           <h3>Signs it might be a fake store</h3>
           <ul class="tips-list">
             <li>Prices are much lower than other trusted retailers for the exact same item.</li>
-            <li>The web address is slightly off - extra letters, odd spelling, or strange endings.</li>
+            <li>The web address is slightly off: extra letters, odd spelling, or strange endings.</li>
             <li>There is no clear physical address or customer service phone number on the site.</li>
             <li>The seller insists on payment through apps, wire transfer, crypto, or gift cards.</li>
           </ul>
@@ -562,7 +562,7 @@
           <p>
             Winter break, ski weekends, and family trips are prime time for fake rental listings.
             Scammers copy real listings or invent properties that do not exist, then push you to pay
-            a deposit in unusual ways or move the conversation off the main platform. :contentReference[oaicite:2]{index=2}
+            a deposit in unusual ways or move the conversation off the main platform.
           </p>
 
           <div class="story">
@@ -597,7 +597,7 @@
           <p>
             One of the biggest holiday scam patterns is simple: someone contacts you with a scary
             or emotional story and asks you to pay using gift cards. Federal consumer protection
-            agencies are very clear on this point - gift cards are for gifts, not for payments. :contentReference[oaicite:3]{index=3}
+            agencies are very clear on this point. Gift cards are for gifts, not for payments.
           </p>
 
           <div class="story">
@@ -608,14 +608,14 @@
               claims there has been an accident and says the only way to fix the problem is to buy
               several gift cards and read the codes on the back over the phone. The caller begs them
               not to tell anyone else. After the cards are drained, they discover the real grandchild
-              is fine - it was a scammer using an imitation voice.
+              is fine. It was a scammer using an imitation voice.
             </p>
           </div>
 
           <h3>How these scams usually work</h3>
           <ul class="tips-list">
             <li>Scammers pretend to be a family member, government agency, utility, bank, or tech support.</li>
-            <li>They create urgency - “today only”, “you will be arrested”, “your loved one is in danger”.</li>
+            <li>They create urgency: “today only”, “you will be arrested”, “your loved one is in danger”.</li>
             <li>They tell you exactly which gift cards to buy and where to buy them.</li>
             <li>They ask for the numbers and codes on the back of the cards over the phone or in a message.</li>
           </ul>
@@ -638,7 +638,7 @@
           <p>
             With more packages on porches, scammers send fake texts and emails that pretend to be
             from major delivery companies or the postal service. Some link to sites that steal card
-            numbers, others try to install malware, and some collect personal data they can use later. :contentReference[oaicite:4]{index=4}
+            numbers, others try to install malware, and some collect personal data they can use later.
           </p>
 
           <div class="story">
@@ -677,7 +677,7 @@
             <li>Talk to a friend, family member, or neighbor before you send money or information.</li>
           </ol>
 
-          <div class="callout safe">
+          <div class="callout.safe">
             <strong>You are allowed to slow things down.</strong> Scammers rely on panic and speed.
             Real businesses and real family emergencies can handle a short delay while you confirm details.
           </div>
@@ -781,6 +781,7 @@
     <footer>
       <div>For educational purposes only. This page does not provide legal advice.</div>
       <div>Last updated: November 2025</div>
+      <img src="pittsford-logo.jpg" alt="Town of Pittsford logo" />
     </footer>
   </div>
 </body>
