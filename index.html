@@ -49,7 +49,7 @@
   body {
     margin: 0;
     font-family: var(--sans);
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.6;
     background: var(--page);
     color: var(--text);
@@ -93,7 +93,8 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 18px 0;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 
   .brand-seal {
@@ -104,7 +105,25 @@
     box-shadow: 0 0 0 1px rgba(246, 227, 168, 0.35);
   }
 
-  .brand-text { min-width: 0; }
+  .brand-text { min-width: 0; flex: 1; }
+
+  .text-size {
+    flex: none;
+    min-height: 44px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(246, 227, 168, 0.6);
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .text-size:hover { background: rgba(255, 255, 255, 0.12); }
+  .text-size span[aria-hidden] { color: var(--cream); font-family: var(--serif); font-size: 18px; margin-right: 4px; }
+
+  html.big-text body { zoom: 1.2; }
 
   .brand-title {
     font-family: var(--serif);
@@ -140,19 +159,17 @@
     gap: 6px;
     margin: 0;
     padding: 10px 0;
-    overflow-x: auto;
-    scrollbar-width: none;
+    flex-wrap: wrap;
   }
-  .site-nav ul::-webkit-scrollbar { display: none; }
   .site-nav li { flex: none; margin: 0; }
 
   .site-nav a {
     display: block;
     text-decoration: none;
     color: var(--text);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
-    padding: 8px 14px;
+    padding: 10px 13px;
     border-radius: 999px;
     border: 1px solid var(--border);
     background: #fff;
@@ -197,7 +214,7 @@
   }
 
   .lede {
-    font-size: 18px;
+    font-size: 20px;
     margin: 0 0 12px;
     max-width: 60ch;
   }
@@ -284,7 +301,7 @@
   }
 
   .checklist strong { display: block; }
-  .checklist span { color: var(--text-muted); font-size: 15.5px; }
+  .checklist span { color: var(--text-muted); font-size: 16.5px; }
 
   /* ---------- Urgent banner ---------- */
   .urgent {
@@ -311,6 +328,15 @@
     flex: none;
   }
   .urgent .btn:hover { background: #8a1515; }
+
+  .always {
+    margin-top: 14px;
+    background: var(--accent-soft);
+    border-left: 6px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+  }
+  .always strong { color: var(--maroon-deep); }
 
   /* ---------- Main layout ---------- */
   .layout-main {
@@ -394,7 +420,7 @@
 
   ul { margin: 0; padding-left: 20px; }
   li + li { margin-top: 7px; }
-  .panel li { font-size: 16px; line-height: 1.5; }
+  .panel li { font-size: 17px; line-height: 1.5; }
 
   blockquote {
     margin: 0;
@@ -428,7 +454,7 @@
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
     padding: 18px 20px;
-    font-size: 16px;
+    font-size: 17px;
   }
   .side-card + .side-card { margin-top: 16px; }
 
@@ -456,9 +482,16 @@
   .resources li:first-child { border-top: 0; padding-top: 0; }
   .resources li:last-child { padding-bottom: 0; }
   .resources a { font-weight: 600; overflow-wrap: anywhere; }
+  .resources .tel {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 4px 0;
+    color: var(--maroon);
+  }
   .resources small {
     display: block;
-    font-size: 14.5px;
+    font-size: 15.5px;
     line-height: 1.45;
     color: var(--text-muted);
     margin-top: 2px;
@@ -493,7 +526,7 @@
 
   @media (max-width: 600px) {
     .wrap { padding: 0 16px; }
-    .brand { gap: 12px; padding: 14px 0; }
+    .brand { gap: 12px; padding-top: 14px; padding-bottom: 14px; }
     .brand-seal { width: 50px; height: 57px; }
     .brand-sub { font-size: 13px; }
     .brand-sub strong { display: block; font-size: 14px; }
@@ -501,7 +534,15 @@
     .card { padding: 20px 18px 18px; }
     .card h2 { font-size: 21px; }
     .urgent .btn { width: 100%; }
-    html { scroll-padding-top: 68px; }
+    html { scroll-padding-top: 12px; }
+    .site-nav { position: static; }
+    .site-nav ul { gap: 8px; padding: 12px 0; }
+    .site-nav a { padding: 11px 14px; }
+    .site-nav a.nav-help { padding: 11px 18px; }
+    .brand { flex-wrap: wrap; }
+    .brand-text { flex: 1 1 calc(100% - 70px); }
+    .text-size { margin-left: 62px; }
+    .actions .btn { width: 100%; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -512,6 +553,7 @@
   @media print {
     body { background: #fff; font-size: 11.5pt; }
     .site-nav, .actions, .skip-link, .no-print, .urgent .btn { display: none !important; }
+    html.big-text body { zoom: 1; }
     .site-header, footer { background: #fff; color: #000; }
     .brand-title { color: #000; }
     .brand-sub, .brand-sub strong { color: #333; }
@@ -520,7 +562,7 @@
     .card, .side-card, .checklist { box-shadow: none; break-inside: avoid; }
     .checklist { margin-top: 14px; }
     a { color: #000; }
-    .resources a[href^="http"]::after { content: " (" attr(href) ")"; font-weight: 400; font-size: 9.5pt; }
+
   }
   </style>
 </head>
@@ -534,6 +576,9 @@
         <div class="brand-title">Safe Pittsford</div>
         <div class="brand-sub">A community safety guide from <strong>Town Councilman Naveen Havannavar</strong></div>
       </div>
+      <button class="text-size no-print" type="button" data-text-size aria-pressed="false">
+        <span aria-hidden="true">A+</span> <span data-text-size-label>Larger text</span>
+      </button>
     </div>
   </header>
 
@@ -541,12 +586,12 @@
     <div class="wrap">
       <ul>
         <li><a class="nav-help" href="#help">I think I was scammed</a></li>
-        <li><a href="#online-deals">Online deals</a></li>
-        <li><a href="#travel-rentals">Travel &amp; rentals</a></li>
-        <li><a href="#gift-cards">Gift cards</a></li>
-        <li><a href="#charity">Charity</a></li>
-        <li><a href="#delivery">Package texts</a></li>
         <li><a href="#resources">Who to call</a></li>
+        <li><a href="#online-deals">Fake stores</a></li>
+        <li><a href="#travel-rentals">Fake rentals</a></li>
+        <li><a href="#gift-cards">Emergency calls</a></li>
+        <li><a href="#charity">Fake charities</a></li>
+        <li><a href="#delivery">Package texts</a></li>
       </ul>
     </div>
   </nav>
@@ -555,15 +600,11 @@
     <section class="hero" id="overview">
       <div>
         <span class="eyebrow">Holiday scam awareness</span>
-        <h1>A Pittsford guide to staying safe from holiday scams</h1>
+        <h1>How to spot a holiday scam, and what to do next</h1>
         <p class="lede">
-          The holiday season means online shopping, travel, year-end donations, and packages on
-          every porch. Scammers know this, and they target communities like Pittsford with fake
-          websites, “urgent” texts, and calls that rush you into paying or sharing information.
-        </p>
-        <p class="hero-note">
-          This page covers the five most common holiday scams and what to do right away if
-          something feels wrong.
+          Scammers are busiest in November and December. They use fake websites, urgent texts,
+          and phone calls to rush you into paying or sharing personal information. This short
+          guide shows you what to look for.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="#online-deals">Read the guide</a>
@@ -577,15 +618,15 @@
         <ol>
           <li>
             <strong>Slow down.</strong>
-            <span>Urgency is the scammer’s best tool. A real company or relative can wait ten minutes.</span>
+            <span>Scammers want you to rush. A real company or relative can wait ten minutes.</span>
           </li>
           <li>
-            <strong>Never pay a stranger with gift cards, wire, crypto, or payment apps.</strong>
-            <span>These are nearly impossible to get back.</span>
+            <strong>Never pay a stranger with gift cards, wire transfers, crypto, or apps like Zelle and Venmo.</strong>
+            <span>That money is almost impossible to get back.</span>
           </li>
           <li>
             <strong>Look it up yourself.</strong>
-            <span>Go to the official website or phone number instead of tapping a link in a message.</span>
+            <span>Do not tap the link or call the number in a message. Find the real website or phone number on your own.</span>
           </li>
         </ol>
       </aside>
@@ -599,36 +640,41 @@
       <a class="btn" href="#help">What to do next</a>
     </div>
 
+    <div class="always" role="note">
+      <strong>True all year:</strong>
+      your bank, Medicare, Social Security, the IRS, and the police will never call to tell you
+      to move your money, buy gift cards, or let them into your computer. If a caller asks for
+      any of these, hang up.
+    </div>
+
     <main class="layout-main" id="main">
       <div>
-        <h2 class="section-heading">The five scams to watch for</h2>
+        <h2 class="section-heading">Five holiday scams to watch for</h2>
 
         <section class="card" id="online-deals">
           <div class="card-head">
             <span class="card-num" aria-hidden="true">1</span>
-            <h2>“Too good to be true” online deals</h2>
+            <h2>Fake online stores</h2>
           </div>
           <p>
-            Scammers set up fake online stores and social media ads that look very close to real
-            brands. Around the holidays they push “limited time” deals on toys, electronics, and
-            hard-to-find items. Often the item never arrives, or your card is used for other charges.
+            Fake stores and social media ads copy real brands and offer deals that seem too
+            good to be true. You pay, and nothing arrives.
           </p>
           <div class="split">
             <div class="panel panel-warn">
               <h3>Red flags</h3>
               <ul>
-                <li>The web address is slightly off from the real brand (extra letters or words).</li>
-                <li>Only one way to pay, often a payment app or wire transfer.</li>
-                <li>Poor spelling, broken links, or missing contact details.</li>
-                <li>No clear return policy.</li>
+                <li>The web address is a little different from the real store’s.</li>
+                <li>The price is far lower than anywhere else.</li>
+                <li>You can only pay by payment app, wire transfer, or gift card.</li>
               </ul>
             </div>
             <div class="panel panel-safe">
               <h3>Protect yourself</h3>
               <ul>
-                <li>Search the store name with “review” or “scam” before you buy.</li>
-                <li>Pay with a credit card, not debit, wire, or gift cards.</li>
-                <li>Be wary of “today only” pressure.</li>
+                <li>Search for the store’s name plus the word “scam” before you buy.</li>
+                <li>Pay with a credit card. It is the easiest to dispute.</li>
+                <li>Ignore “today only” pressure.</li>
               </ul>
             </div>
           </div>
@@ -637,28 +683,27 @@
         <section class="card" id="travel-rentals">
           <div class="card-head">
             <span class="card-num" aria-hidden="true">2</span>
-            <h2>Travel and holiday rental scams</h2>
+            <h2>Fake vacation rentals</h2>
           </div>
           <p>
-            Winter break, ski weekends, and family trips are prime time for fake rental listings.
-            Scammers copy photos of real homes, list them on rental sites or classifieds, insist
-            you pay quickly to “hold” the booking, and then disappear.
+            Scammers copy photos of real homes and post them as rentals. They ask for a quick
+            payment to “hold” your booking, then disappear.
           </p>
           <div class="split">
             <div class="panel panel-warn">
               <h3>Red flags</h3>
               <ul>
                 <li>The price is far below similar places nearby.</li>
-                <li>The owner refuses to talk by phone or video.</li>
-                <li>They want a wire, gift cards, or a “friends and family” app payment.</li>
+                <li>The owner will not talk by phone or video.</li>
+                <li>They ask you to pay outside the booking website.</li>
               </ul>
             </div>
             <div class="panel panel-safe">
               <h3>Protect yourself</h3>
               <ul>
-                <li>Book only through trusted platforms with secure payment.</li>
-                <li>Read reviews, and be cautious of listings with no history.</li>
-                <li>Never pay outside the platform, even to “save on fees.”</li>
+                <li>Book through a well-known rental website.</li>
+                <li>Read the reviews. Be careful with brand-new listings.</li>
+                <li>Never pay outside the website, even to “save on fees.”</li>
               </ul>
             </div>
           </div>
@@ -667,27 +712,28 @@
         <section class="card" id="gift-cards">
           <div class="card-head">
             <span class="card-num" aria-hidden="true">3</span>
-            <h2>Gift card and “family emergency” scams</h2>
+            <h2>“Family emergency” calls and gift cards</h2>
           </div>
           <p>
-            Scammers pretend to be a family member, a friend, or even your boss who is in trouble
-            and needs help fast. They ask for gift cards or money sent in a way that is hard to trace.
+            A caller pretends to be a grandchild, a friend, or your boss who is in trouble and
+            needs money fast. Scammers can now use software to copy a real person’s voice, so
+            the caller may sound exactly like someone you love.
           </p>
           <div class="split">
             <div class="panel panel-warn">
               <h3>What they say</h3>
               <ul>
-                <li><blockquote>“Grandma, it’s me. I’m in trouble and you can’t tell anyone.”</blockquote></li>
-                <li><blockquote>“I’m stuck while traveling. Can you send gift cards or transfer money?”</blockquote></li>
-                <li><blockquote>“Buy gift cards for a work event and text me the numbers on the back.”</blockquote></li>
+                <li><blockquote>“Grandma, it’s me. I’m in trouble. Please don’t tell anyone.”</blockquote></li>
+                <li><blockquote>“I’m stuck and need money right now.”</blockquote></li>
+                <li><blockquote>“Buy gift cards and read me the numbers on the back.”</blockquote></li>
               </ul>
             </div>
             <div class="panel panel-safe">
               <h3>Protect yourself</h3>
               <ul>
-                <li>Pause and verify. Call the person on a number you already know, or check with another family member.</li>
-                <li>Never read gift card numbers over the phone or send photos of the card.</li>
-                <li>“You must pay with gift cards” is almost always a scam.</li>
+                <li>Hang up. Call the person back on the number you already have.</li>
+                <li>Agree on a family code word, and ask for it.</li>
+                <li>Never read gift card numbers to anyone over the phone.</li>
               </ul>
             </div>
           </div>
@@ -696,27 +742,27 @@
         <section class="card" id="charity">
           <div class="card-head">
             <span class="card-num" aria-hidden="true">4</span>
-            <h2>Charity and year-end donation scams</h2>
+            <h2>Fake charities</h2>
           </div>
           <p>
-            People are generous at the end of the year. Scammers invent charities, or copy the
-            name of a real one with a small change, to trick donors.
+            People give generously in December. Scammers invent charities, or use a name that
+            sounds almost like a real one.
           </p>
           <div class="split">
             <div class="panel panel-warn">
               <h3>Red flags</h3>
               <ul>
-                <li>High-pressure requests to give right now by phone or text.</li>
-                <li>No clear answer on how the money will be used.</li>
-                <li>Donations accepted only by wire, gift cards, or payment apps.</li>
+                <li>They push you to give right now.</li>
+                <li>They cannot explain how the money is used.</li>
+                <li>They only take wire transfers, gift cards, or payment apps.</li>
               </ul>
             </div>
             <div class="panel panel-safe">
               <h3>Protect yourself</h3>
               <ul>
-                <li>Search the charity’s name with “review” or “rating” before giving.</li>
-                <li>Go to the charity’s official website yourself instead of following a link.</li>
-                <li>Keep records of what you give.</li>
+                <li>Look the charity up before you give.</li>
+                <li>Donate on the charity’s own website, not through a link.</li>
+                <li>Keep a record of what you gave.</li>
               </ul>
             </div>
           </div>
@@ -725,27 +771,28 @@
         <section class="card" id="delivery">
           <div class="card-head">
             <span class="card-num" aria-hidden="true">5</span>
-            <h2>Package and delivery text scams</h2>
+            <h2>Fake package texts</h2>
           </div>
           <p>
-            Scammers send texts and emails that look like they come from UPS, FedEx, USPS, or
-            Amazon, with a link to “track your package” or pay a small fee.
+            A text or email says there is a problem with your delivery and asks you to tap a
+            link or pay a small fee. It looks like it came from USPS, UPS, FedEx, or Amazon.
+            It did not.
           </p>
           <div class="split">
             <div class="panel panel-warn">
               <h3>Red flags</h3>
               <ul>
-                <li>The message comes from a random phone number or email address.</li>
-                <li>The link looks strange, with extra words or numbers.</li>
-                <li>It says your package will be returned or destroyed unless you act now.</li>
+                <li>You were not expecting the message.</li>
+                <li>The link looks odd, with extra words or numbers.</li>
+                <li>It says your package will be returned unless you act now.</li>
               </ul>
             </div>
             <div class="panel panel-safe">
               <h3>Protect yourself</h3>
               <ul>
-                <li>Do not tap links in texts or emails you did not expect.</li>
-                <li>Open the shipper’s official site or app and type in your tracking number.</li>
-                <li>Forward scam texts to <strong>7726</strong> (SPAM), then delete them.</li>
+                <li>Do not tap the link.</li>
+                <li>Go to the shipper’s real website and type in your tracking number.</li>
+                <li>Forward the text to <strong>7726</strong> (it spells SPAM), then delete it.</li>
               </ul>
             </div>
           </div>
@@ -757,39 +804,38 @@
             <h2>If you already paid or shared information</h2>
           </div>
           <p>
-            Act quickly, and do not be embarrassed: these scams are designed by professionals and
-            fool careful people every day. Even if you cannot get all your money back, moving
-            fast limits the damage and helps investigators.
+            Act fast, and do not be embarrassed. These scams are run by professionals and fool
+            careful people every day.
           </p>
 
           <div class="help-steps">
-            <h3>If you gave a credit or debit card number</h3>
+            <h3>If you gave a card or bank account number</h3>
             <ul>
-              <li>Call the number on the back of your card right away and explain what happened.</li>
-              <li>Ask the bank to review recent charges and block anything suspicious.</li>
-              <li>Change your online banking password and turn on account alerts.</li>
+              <li>Call the number on the back of your card now. Tell them what happened.</li>
+              <li>Ask them to block the charges and send you a new card.</li>
+              <li>Change your online banking password.</li>
             </ul>
 
             <h3>If you paid with gift cards</h3>
             <ul>
-              <li>Contact the company that issued the card right away and say it was used in a scam.</li>
-              <li>Keep the receipt and the card itself.</li>
-              <li>Report it to the Federal Trade Commission at <a href="https://reportfraud.ftc.gov/">ReportFraud.ftc.gov</a>.</li>
+              <li>Call the gift card company now, using the number on the card. They may be able to freeze the money.</li>
+              <li>Keep the card and the receipt.</li>
+              <li>Report it at <a href="https://reportfraud.ftc.gov/">ReportFraud.ftc.gov</a>.</li>
             </ul>
 
-            <h3>If personal information was exposed</h3>
+            <h3>If you shared a password or Social Security number</h3>
             <ul>
-              <li>Change passwords on every account that shares that login or email.</li>
-              <li>Turn on two-factor authentication wherever you can.</li>
-              <li>Check your credit reports for free at <a href="https://www.annualcreditreport.com/">AnnualCreditReport.com</a> and look for accounts you do not recognize.</li>
-              <li>Follow the step-by-step recovery plan at <a href="https://www.identitytheft.gov/">IdentityTheft.gov</a>.</li>
+              <li>Change your passwords, starting with email and banking.</li>
+              <li>Turn on two-step login, where a code is sent to your phone.</li>
+              <li>Follow the step-by-step plan at <a href="https://www.identitytheft.gov/">IdentityTheft.gov</a>.</li>
+              <li>Check your credit reports for free at <a href="https://www.annualcreditreport.com/">AnnualCreditReport.com</a>.</li>
             </ul>
           </div>
 
           <div class="callout">
-            <strong>Not sure what to do next?</strong>
-            Talk with your bank, a trusted family member, or local law enforcement. Asking early
-            is always better than waiting.
+            <strong>Not sure what to do?</strong>
+            Call one of the free helplines under <a href="#resources">Who to call</a>, or talk
+            with a family member you trust. Asking early is always better than waiting.
           </div>
         </section>
       </div>
@@ -800,27 +846,33 @@
           <ul class="resources">
             <li>
               <strong>Your bank or credit union</strong>
-              <small>Use the number on the back of your card and ask for the fraud department.</small>
+              <small>Use the number on the back of your card. Ask for the fraud department.</small>
             </li>
             <li>
-              <strong>Local police or sheriff</strong>
-              <small>Use the non-emergency line to file a report. Call 911 only if you are in danger.</small>
+              <strong>Lifespan of Greater Rochester</strong>
+              <a class="tel" href="tel:+15852448400">585-244-8400</a>
+              <small>Local help for older adults who suspect a scam.</small>
             </li>
             <li>
-              <a href="https://reportfraud.ftc.gov/">ReportFraud.ftc.gov</a>
-              <small>Federal Trade Commission. Report any scam.</small>
+              <strong>AARP Fraud Watch Helpline</strong>
+              <a class="tel" href="tel:+18779083360">877-908-3360</a>
+              <small>Free. Monday to Friday, 8 a.m. to 8 p.m.</small>
             </li>
             <li>
-              <a href="https://www.ic3.gov/">ic3.gov</a>
-              <small>FBI Internet Crime Complaint Center, for online fraud.</small>
+              <strong>New York Attorney General</strong>
+              <a class="tel" href="tel:+18007717755">1-800-771-7755</a>
+              <small>Consumer helpline, or visit <a href="https://ag.ny.gov/">ag.ny.gov</a>.</small>
             </li>
             <li>
-              <a href="https://ag.ny.gov/">New York Attorney General</a>
-              <small>Consumer helpline: <a href="tel:+18007717755">1-800-771-7755</a></small>
+              <strong>Monroe County Sheriff</strong>
+              <small>File a report if you lost money. Call 911 if you are in danger.</small>
             </li>
             <li>
-              <a href="tel:+18779083360">AARP Fraud Watch: 877-908-3360</a>
-              <small>Free helpline for anyone, staffed by trained volunteers.</small>
+              <strong>Report it online</strong>
+              <small>
+                Any scam: <a href="https://reportfraud.ftc.gov/">ReportFraud.ftc.gov</a><br />
+                Online fraud (FBI): <a href="https://www.ic3.gov/">ic3.gov</a>
+              </small>
             </li>
           </ul>
         </div>
@@ -828,21 +880,11 @@
         <div class="side-card no-print">
           <h2>Pass it on</h2>
           <p>
-            The best defense is a community that talks to each other. Share this guide, bring it
-            up at neighborhood gatherings, and encourage older relatives to call someone they
-            trust before sending money.
+            Scams lose their power when neighbors talk. Share this guide, or print a copy for
+            someone who is not online.
           </p>
           <button class="btn btn-primary" type="button" data-share>Share this page</button>
           <button class="btn" type="button" data-print>Print a copy</button>
-        </div>
-
-        <div class="side-card">
-          <h2>Why this page exists</h2>
-          <p>
-            Holiday scams affect people in every community. This guide was created to help
-            Pittsford and Monroe County residents recognize common tactics and take simple,
-            practical steps to stay safe.
-          </p>
         </div>
       </aside>
     </main>
@@ -859,6 +901,25 @@
     document.querySelectorAll("[data-print]").forEach(function (btn) {
       btn.addEventListener("click", function () { window.print(); });
     });
+
+    (function () {
+      var btn = document.querySelector("[data-text-size]");
+      if (!btn) return;
+      var label = btn.querySelector("[data-text-size-label]");
+      function apply(big) {
+        document.documentElement.classList.toggle("big-text", big);
+        btn.setAttribute("aria-pressed", big ? "true" : "false");
+        label.textContent = big ? "Normal text" : "Larger text";
+      }
+      var saved = false;
+      try { saved = localStorage.getItem("bigText") === "1"; } catch (e) {}
+      apply(saved);
+      btn.addEventListener("click", function () {
+        var big = !document.documentElement.classList.contains("big-text");
+        apply(big);
+        try { localStorage.setItem("bigText", big ? "1" : "0"); } catch (e) {}
+      });
+    })();
 
     document.querySelectorAll("[data-share]").forEach(function (btn) {
       var label = btn.textContent;
