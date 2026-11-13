@@ -2,690 +2,1040 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pittsford Holiday Scam Safety Guide</title>
+  <title>Safe Pittsford | Holiday Scam Safety Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Learn how Pittsford residents can spot common holiday scams, protect themselves, and where to get help if you think you have been scammed." />
+  <meta name="theme-color" content="#1c1614" />
+  <meta name="color-scheme" content="light" />
+  <link rel="canonical" href="https://safepittsford.com/" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://safepittsford.com/" />
+  <meta property="og:title" content="Safe Pittsford: Holiday Scam Safety Guide" />
+  <meta property="og:description" content="How to spot the most common holiday scams, and what to do right away if something feels wrong." />
+  <meta property="og:image" content="https://safepittsford.com/pittsford-holiday-scam-logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@1,9..144,900,0,1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
   :root {
-    --bg: #fff7ed; /* light orange */
-    --bg-soft: #fffbeb;
+    --ink: #1c1614;
+    --paper: #f5f2ea;
     --card: #ffffff;
-    --accent: #ea580c; /* soft orange */
-    --accent-soft: rgba(234, 88, 12, 0.12);
-    --text-main: #111827;
-    --text-muted: #6b7280;
-    --border-subtle: #e5e7eb;
-    --radius-lg: 16px;
-    --radius-xl: 24px;
-    --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.1);
+    --red: #dc2626;
+    --red-deep: #991b1b;
+    --red-text: #c81e1e;
+    --yellow: #fde047;
+    --orange: #f59e0b;
+    --green: #4a9d73;
+    --green-text: #1f7a4d;
+    --muted: #5b524e;
+    --display: "Fraunces", Georgia, "Times New Roman", serif;
+    --body: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "Courier Prime", "Courier New", Courier, monospace;
+    --hard-shadow: 9px 9px 0 rgba(28, 22, 20, 0.14);
   }
 
-  * {
-    box-sizing: border-box;
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #fffbeb 20%, #fff7ed 55%, #ffedd5 100%);
-    color: var(--text-main);
+    font-family: var(--body);
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: radial-gradient(rgba(28, 22, 20, 0.07) 1px, transparent 1px);
+    background-size: 5px 5px;
   }
 
-  .page {
-    min-height: 100vh;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 24px 16px 40px;
+  html.big-text body { zoom: 1.2; }
+
+  a { color: var(--red-text); text-underline-offset: 3px; }
+
+  :focus-visible {
+    outline: 4px solid var(--orange);
+    outline-offset: 3px;
   }
 
-  .site-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .logo-image {
-    width: clamp(100px, 18vw, 160px);
-    height: clamp(100px, 18vw, 160px);
-    object-fit: contain;
-    margin-bottom: 4px;
-  }
-
-  .logo-text-title {
-    font-size: 18px;
+  .skip-link {
+    position: absolute;
+    left: 12px;
+    top: -80px;
+    background: var(--yellow);
+    color: var(--ink);
+    padding: 12px 16px;
     font-weight: 700;
-    letter-spacing: 0.03em;
+    z-index: 100;
+  }
+  .skip-link:focus { top: 12px; }
+
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .display {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 900;
+    font-variation-settings: "SOFT" 0, "WONK" 1;
     text-transform: uppercase;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
   }
 
-  .logo-text-sub {
-    font-size: 13px;
-    color: var(--text-muted);
+  .mono {
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
   }
 
-  nav {
+  /* ---------- Hazard tape ---------- */
+  .tape {
+    height: 22px;
+    background: repeating-linear-gradient(-45deg, var(--yellow) 0 26px, var(--ink) 26px 52px);
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    background: var(--ink);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::after {
+    content: "!";
+    position: absolute;
+    right: 4%;
+    top: -70px;
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 420px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+  }
+
+  .brand {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 10px;
-  }
-
-  nav a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-size: 13px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--border-subtle);
-    background: rgba(255, 255, 255, 0.85);
-  }
-
-  nav a:hover {
-    border-color: rgba(234, 88, 12, 0.6);
-    color: #9a3412;
-  }
-
-  .hero {
-    margin-top: 10px;
-    background: linear-gradient(135deg, #fffbeb, #ffedd5);
-    border-radius: var(--radius-xl);
-    padding: 20px 18px;
-    display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-    gap: 18px;
-    box-shadow: var(--shadow-soft);
-    border: 1px solid #fed7aa;
-  }
-
-  .hero-pill {
-    display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: #9a3412;
-    background: #fffbeb;
-    border-radius: 999px;
-    padding: 4px 10px;
-    border: 1px solid #fed7aa;
-    margin-bottom: 6px;
+    flex-wrap: wrap;
+    gap: 16px 22px;
+    padding-top: 30px;
+    padding-bottom: 26px;
+    position: relative;
+    z-index: 1;
   }
 
-  .hero-pill-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: #f97316;
+  .brand-seal {
+    width: 66px;
+    height: 75px;
+    flex: none;
+    box-shadow: 0 0 0 2px var(--yellow);
   }
 
-  .hero-highlight {
+  .brand-text { flex: 1 1 420px; min-width: 0; }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+  }
+
+  .brand-title {
+    font-size: clamp(40px, 5.2vw, 70px);
+    margin: 0;
+  }
+
+  .edition {
+    font-size: 15px;
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    padding: 6px 12px 4px;
+    white-space: nowrap;
+  }
+
+  .brand-sub {
+    margin: 10px 0 0;
+    font-family: var(--mono);
+    font-size: 17px;
+    color: #d9d2c7;
+  }
+  .brand-sub strong { color: #fff; }
+
+  .text-size {
+    flex: none;
+    min-height: 48px;
+    padding: 8px 16px;
+    border: 2px solid var(--yellow);
+    background: transparent;
+    color: #fff;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .text-size:hover { background: var(--yellow); color: var(--ink); }
+
+  /* ---------- Nav ---------- */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: var(--ink);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-bottom: 4px solid var(--yellow);
+  }
+
+  .site-nav ul {
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
-    font-size: 12px;
+    align-items: center;
+    gap: 4px 6px;
+    margin: 0;
+    padding: 10px 0;
   }
 
-  .hero-highlight span {
-    background: #fffbeb;
-    border-radius: 999px;
-    padding: 3px 8px;
-    border: 1px dashed #fed7aa;
-    color: #9a3412;
+  .site-nav a {
+    display: block;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 15.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    padding: 11px 10px 9px;
+  }
+  .site-nav a:hover { color: var(--yellow); }
+
+  .site-nav a.nav-help {
+    background: var(--red);
+    color: #fff;
+    margin-right: 6px;
+  }
+  .site-nav a.nav-help:hover { background: var(--yellow); color: var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--red);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 8px solid var(--ink);
+  }
+
+  .hero::before {
+    content: "ALERT";
+    position: absolute;
+    left: -2%;
+    top: 4%;
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(180px, 34vw, 480px);
+    line-height: 0.9;
+    color: rgba(255, 255, 255, 0.07);
+    transform: rotate(-8deg);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .hero .wrap {
+    position: relative;
+    padding-top: 56px;
+    padding-bottom: 60px;
+  }
+
+  .alert-tag {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--yellow);
+    font-size: 15px;
+    padding: 9px 16px 7px;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.28);
+    transform: rotate(-1deg);
   }
 
   .hero h1 {
-    font-size: clamp(24px, 2.2vw + 16px, 30px);
-    line-height: 1.2;
-    margin: 4px 0 10px;
+    font-size: clamp(44px, 7.4vw, 96px);
+    margin: 26px 0 22px;
+    max-width: 13ch;
   }
 
-  .hero p {
-    margin: 0 0 8px;
-    font-size: 14px;
-    color: var(--text-main);
+  .lede {
+    font-size: clamp(20px, 1.4vw + 14px, 25px);
+    font-weight: 500;
+    line-height: 1.45;
+    max-width: 44ch;
+    margin: 0 0 34px;
   }
 
-  .hero-meta {
+  .rules {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .rules li {
+    background: var(--red-deep);
+    border-left: 6px solid var(--yellow);
+    padding: 18px 22px 20px;
+    font-size: 19px;
+    line-height: 1.45;
+  }
+
+  .rules .mono {
+    display: block;
+    font-size: 14.5px;
+    color: var(--yellow);
+    margin-bottom: 6px;
+  }
+
+  .rules strong {
+    display: block;
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+
+  .actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
+    gap: 12px;
+    margin-top: 30px;
   }
 
-  .hero-meta-item {
-    font-size: 12px;
-    color: var(--text-muted);
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 999px;
-    padding: 4px 10px;
-    border: 1px solid var(--border-subtle);
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 12px 22px 10px;
+    border: 3px solid var(--ink);
+    background: #fff;
+    color: var(--ink);
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 16.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .btn:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3); }
+  .btn-yellow { background: var(--yellow); }
+  .btn-ink { background: var(--ink); color: #fff; }
+
+  /* ---------- Phone strip ---------- */
+  .urgent {
+    background: var(--yellow);
+    border-bottom: 4px solid var(--ink);
   }
 
-  .hero-card {
-    background: #ffffff;
-    border-radius: var(--radius-lg);
-    padding: 14px 14px 12px;
-    border: 1px solid #fed7aa;
-    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
-  }
-
-  .hero-card-title {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 4px;
+  .urgent .wrap {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 14px 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
-  .hero-chip {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    background: #f97316;
-    color: #fff7ed;
-    padding: 3px 8px;
-    border-radius: 999px;
+  .urgent p { margin: 0; font-size: 21px; line-height: 1.4; max-width: 56ch; }
+  .urgent strong { display: block; font-size: 23px; }
+
+  /* ---------- Sections ---------- */
+  .section { padding-top: 64px; }
+
+  .section-title {
+    font-size: clamp(32px, 3.6vw, 48px);
+    margin: 0 0 44px;
   }
 
-  .hero-card ul {
-    margin: 8px 0 8px 18px;
-    padding: 0;
-    font-size: 13px;
-  }
-
-  .hero-card li + li {
-    margin-top: 4px;
-  }
-
-  .hero-badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
-  }
-
-  .hero-badge {
-    font-size: 11px;
-    color: #9a3412;
-    background: #fffbeb;
-    border-radius: 999px;
-    padding: 3px 9px;
-    border: 1px solid #fed7aa;
-  }
-
-  .layout-main {
+  .grid {
     display: grid;
-    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.1fr);
-    gap: 18px;
-    margin-top: 22px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 52px 44px;
   }
 
   .card {
+    position: relative;
     background: var(--card);
-    border-radius: var(--radius-lg);
-    padding: 16px 16px 14px;
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    border: 4px solid var(--ink);
+    box-shadow: var(--hard-shadow);
+    padding: 44px 34px 30px;
   }
 
-  .card + .card {
-    margin-top: 12px;
+  .badge {
+    position: absolute;
+    top: -26px;
+    left: 22px;
+    width: 62px;
+    height: 62px;
+    display: grid;
+    place-items: center;
+    background: var(--orange);
+    border: 4px solid var(--ink);
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 1;
+    transform: rotate(-4deg);
   }
 
-  h2 {
-    font-size: 18px;
-    margin: 0 0 8px;
+  .card h3.display {
+    font-size: clamp(27px, 2.3vw, 36px);
+    margin: 4px 0 14px;
   }
 
-  h3 {
-    font-size: 15px;
-    margin: 14px 0 6px;
+  .card h2.display {
+    font-size: clamp(30px, 3.2vw, 44px);
+    margin: 4px 0 14px;
   }
 
-  p {
-    font-size: 14px;
-    line-height: 1.55;
-    margin: 0 0 8px;
-  }
+  .card p { margin: 0 0 6px; }
 
-  ul {
-    margin: 4px 0 8px 18px;
+  .label {
+    font-family: var(--body);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    line-height: 1.3;
+    margin: 24px 0 12px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid currentColor;
+  }
+  .label-warn { color: var(--red-text); }
+  .label-safe { color: var(--green-text); }
+
+  .card ul {
+    list-style: none;
+    margin: 0;
     padding: 0;
-    font-size: 14px;
   }
 
-  li + li {
-    margin-top: 4px;
+  .card li {
+    position: relative;
+    padding-left: 28px;
+    margin: 0;
+  }
+  .card li + li { margin-top: 9px; }
+
+  .card li::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 0.62em;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--red);
+  }
+  .safe li::before { background: var(--green); }
+
+  blockquote { margin: 0; font-style: italic; }
+
+  /* Yellow "true all year" card */
+  .card-yellow { background: var(--yellow); }
+  .card-yellow .badge { background: var(--ink); color: var(--yellow); }
+  .card-yellow li::before { background: var(--ink); }
+  .card-yellow .label { color: var(--ink); }
+  .card-yellow li { font-size: 21px; font-weight: 500; }
+  .card-yellow .verdict {
+    margin-top: 24px;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.3;
   }
 
-  .tag {
-    display: inline-flex;
+  /* Help card */
+  .card-help { border-color: var(--red); margin-top: 8px; }
+  .card-help .badge { background: var(--red); color: #fff; }
+
+  .help-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px 34px;
+  }
+
+  .reminder {
+    margin-top: 28px;
+    background: var(--yellow);
+    border: 3px solid var(--ink);
+    box-shadow: 6px 6px 0 rgba(28, 22, 20, 0.14);
+    padding: 18px 22px;
+  }
+  .reminder .mono { display: block; font-size: 14.5px; margin-bottom: 4px; }
+  .reminder a { color: var(--ink); font-weight: 700; }
+
+  /* ---------- Who to call ---------- */
+  .resources {
+    margin-top: 72px;
+    background: var(--ink);
+    color: #fff;
+    border: 6px solid var(--green);
+    position: relative;
+    padding: 56px 40px 44px;
+  }
+
+  .resources::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 12px;
+    background: repeating-linear-gradient(90deg, var(--green) 0 26px, var(--ink) 26px 52px);
+  }
+
+  .resources .section-title { color: #6cc79a; margin-bottom: 8px; }
+  .resources-intro { margin: 0 0 30px; color: #e7e0d6; max-width: 60ch; }
+
+  .contacts {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contacts li {
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    border-top: 5px solid var(--yellow);
+    padding: 18px 20px 20px;
+  }
+
+  .contacts .mono {
+    display: block;
+    font-size: 14.5px;
+    color: var(--yellow);
+    margin-bottom: 6px;
+  }
+
+  .contacts strong { display: block; font-size: 21px; line-height: 1.25; }
+
+  .contacts .tel {
+    display: block;
+    font-size: 31px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+    margin: 4px 0;
+    white-space: nowrap;
+  }
+
+  .contacts p { margin: 6px 0 0; font-size: 17.5px; line-height: 1.45; color: #e7e0d6; }
+  .contacts a { color: #fff; }
+  .contacts a:hover { color: var(--yellow); }
+
+  .share {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 2px solid var(--yellow);
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    font-size: 12px;
-    color: #9a3412;
-    background: #fffbeb;
-    border-radius: 999px;
-    padding: 3px 8px;
-    margin-bottom: 6px;
-  }
-
-  .pill-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
-  }
-
-  .pill {
-    font-size: 11px;
-    padding: 3px 8px;
-    border-radius: 999px;
-    background: #ffedd5;
-    color: #9a3412;
-  }
-
-  .severity {
-    font-size: 12px;
-    margin-bottom: 6px;
-    color: #b91c1c;
-  }
-
-  .severity span {
-    font-weight: 600;
-  }
-
-  .step-label {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    margin-bottom: 4px;
-  }
-
-  .highlight-box {
-    background: #fff7ed;
-    border-radius: 12px;
-    padding: 10px 11px;
-    border: 1px dashed #fed7aa;
-    font-size: 13px;
-    margin: 6px 0 10px;
-  }
-
-  .highlight-box strong {
-    color: #9a3412;
-  }
-
-  .sidebar-section-title {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-  }
-
-  .sidebar-card {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    padding: 12px 14px;
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
-    font-size: 13px;
-  }
-
-  .sidebar-card + .sidebar-card {
-    margin-top: 10px;
-  }
-
-  .tagline {
-    font-size: 13px;
-    margin-top: 6px;
-    color: var(--text-muted);
-  }
-
-  footer {
-    margin-top: 26px;
-    font-size: 11px;
-    color: var(--text-muted);
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 6px;
+    gap: 18px 30px;
+  }
+  .share p { margin: 0; max-width: 52ch; font-size: 20px; }
+  .share .actions { margin: 0; }
+  .share .btn { border-color: #fff; box-shadow: none; }
+  .share .btn-ink { background: transparent; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: 72px;
+    background: var(--ink);
+    color: #d9d2c7;
+    font-family: var(--mono);
+    font-size: 15.5px;
+    text-align: center;
+    border-top: 6px solid #6b625e;
+  }
+  footer .wrap { padding-top: 26px; padding-bottom: 30px; }
+  footer p { margin: 0; }
+  footer p + p { margin-top: 4px; }
+
+  /* ---------- Load-in ---------- */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes tape-in {
+    from { background-position: -104px 0; }
+    to { background-position: 0 0; }
+  }
+  .tape { animation: tape-in 0.9s ease-out both; }
+  .rise { animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .d1 { animation-delay: 0.08s; }
+  .d2 { animation-delay: 0.2s; }
+  .d3 { animation-delay: 0.32s; }
+  .d4 { animation-delay: 0.46s; }
+  .d5 { animation-delay: 0.56s; }
+  .d6 { animation-delay: 0.66s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .tape, .rise { animation: none; }
+    .btn { transition: none; }
   }
 
-  @media (max-width: 900px) {
-    .hero {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .layout-main {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .page {
-      padding: 20px 14px 32px;
-    }
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .rules, .help-grid { grid-template-columns: minmax(0, 1fr); }
+    .contacts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid { grid-template-columns: minmax(0, 1fr); gap: 50px; }
   }
 
-  @media (max-width: 600px) {
-    nav {
-      justify-content: flex-start;
-      overflow-x: auto;
-      padding-bottom: 4px;
-    }
+  @media (max-width: 640px) {
+    html { scroll-padding-top: 12px; }
+    body { font-size: 18px; }
+    .wrap { padding-left: 16px; padding-right: 16px; }
+    .masthead::after { display: none; }
+    .brand { padding-top: 22px; padding-bottom: 20px; gap: 14px; }
+    .brand-seal { width: 52px; height: 59px; }
+    .brand-text { flex-basis: calc(100% - 70px); }
+    .brand-sub { font-size: 15px; }
+    .brand-sub strong { display: block; }
+    .edition { font-size: 13px; }
+    .text-size { width: 100%; }
+    .site-nav { position: static; }
+    .site-nav ul { gap: 2px 0; }
+    .site-nav li { flex: 1 1 50%; }
+    .site-nav li:first-child { flex-basis: 100%; }
+    .site-nav a { padding: 12px 8px 10px; font-size: 15px; letter-spacing: 0.06em; }
+    .site-nav a.nav-help { margin: 0 0 4px; text-align: center; }
+    .hero .wrap { padding-top: 38px; padding-bottom: 42px; }
+    .hero h1 { max-width: none; font-size: 40px; }
+    .section { padding-top: 48px; }
+    .section-title { margin-bottom: 40px; }
+    .card { padding: 42px 20px 24px; box-shadow: 6px 6px 0 rgba(28, 22, 20, 0.14); }
+    .badge { left: 14px; }
+    .contacts { grid-template-columns: minmax(0, 1fr); }
+    .resources { padding: 46px 18px 32px; margin-top: 56px; }
+    .actions .btn, .urgent .btn { width: 100%; }
+    .share .actions { width: 100%; }
+  }
 
-    .hero {
-      padding: 18px 14px;
-    }
-
-    .card {
-      padding: 14px 14px 12px;
-    }
+  /* ---------- Print: a clean handout ---------- */
+  @media print {
+    html.big-text body { zoom: 1; }
+    body { background: #fff; font-size: 11pt; }
+    .tape, .site-nav, .actions, .skip-link, .text-size, .share, .urgent .btn,
+    .hero::before, .masthead::after { display: none !important; }
+    .masthead, .hero, .urgent, .resources, footer { background: #fff !important; color: #000 !important; }
+    .hero { border-bottom: 2px solid #000; }
+    .hero .wrap { padding-top: 12px; padding-bottom: 16px; }
+    .hero h1 { font-size: 30pt; margin: 10px 0; max-width: none; }
+    .alert-tag, .edition { background: #fff; color: #000; border: 1px solid #000; box-shadow: none; }
+    .brand-sub, .brand-sub strong, .rules .mono, .contacts .mono, .contacts p,
+    .contacts .tel, .contacts a, .resources .section-title, .resources-intro, footer { color: #000 !important; }
+    .rules li { background: #fff; border: 1px solid #000; border-left: 5px solid #000; }
+    .section { padding-top: 22px; }
+    .section-title { margin-bottom: 26px; font-size: 20pt; }
+    .grid { gap: 34px 22px; }
+    .card, .reminder { box-shadow: none; break-inside: avoid; }
+    .card { border-width: 2px; padding: 30px 18px 16px; }
+    .resources { border: 2px solid #000; padding: 20px; margin-top: 30px; break-inside: avoid; }
+    .resources::before { display: none; }
+    .contacts li { border-color: #000; }
+    .contacts .tel { font-size: 16pt; }
+    .rise { animation: none; }
   }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="site-header">
-      <img src="pittsford-holiday-scam-logo.jpg" alt="Pittsford holiday scam awareness logo" class="logo-image" />
-      <div class="logo-text-title">Pittsford Scam Watch</div>
-      <div class="logo-text-sub">Holiday scam awareness for Pittsford and Monroe County residents</div>
-      <nav>
-        <a href="#overview">Overview</a>
-        <a href="#online-deals">Online deals</a>
-        <a href="#travel-rentals">Travel & rentals</a>
-        <a href="#gift-cards">Gift card scams</a>
-        <a href="#delivery">Package texts</a>
-        <a href="#help">If you think it is a scam</a>
-        <a href="#resources">Local & legal help</a>
-      </nav>
-    </header>
+  <a class="skip-link" href="#main">Skip to the guide</a>
 
-    <section class="hero" id="overview">
-      <div>
-        <div class="hero-pill">
-          <span class="hero-pill-dot"></span>
-          Holiday scams spike every November and December - stay a step ahead.
-        </div>
-        <h1>Holiday scams: a Pittsford guide to staying safe</h1>
-        <p>
-          The holiday season means busy schedules, online shopping, travel, year-end donations,
-          and packages on every porch. Scammers know this and they target people in communities
-          like Pittsford with fake websites, “urgent” texts, and calls that try to rush you into
-          paying or sharing information.
-        </p>
-        <p class="tagline">
-          This page walks through the most common holiday scams and what you can do right away
-          if something feels wrong.
-        </p>
+  <div class="tape" aria-hidden="true"></div>
 
-        <div class="hero-highlight">
-          <span>Fake online stores and “too good to be true” deals</span>
-          <span>Travel and rental scams for winter break</span>
-          <span>Gift card and “family emergency” schemes</span>
-          <span>Package and delivery phishing texts</span>
+  <header class="masthead">
+    <div class="wrap brand">
+      <img src="pittsford-seal.jpg" alt="Town of Pittsford seal" class="brand-seal" width="66" height="75" />
+      <div class="brand-text">
+        <div class="brand-row">
+          <p class="brand-title display">Safe Pittsford</p>
+          <span class="edition mono">Holiday edition 2026</span>
         </div>
+        <p class="brand-sub">A community safety bulletin from <strong>Town Councilman Naveen Havannavar</strong></p>
       </div>
-      <aside class="hero-card" aria-label="Fast safety checklist">
-        <div class="hero-card-inner">
-          <div class="hero-card-title">
-            Holiday safety checklist
-            <span class="hero-chip">3 quick rules</span>
-          </div>
-          <ul>
-            <li>Slow down when a message feels urgent or emotional.</li>
-            <li>Do not pay with gift cards, wire transfer, crypto, or payment apps for strangers.</li>
-            <li>Go to the official website or phone number yourself instead of tapping a link in a message.</li>
-          </ul>
-          <div class="hero-badge-row">
-            <span class="hero-badge">For Pittsford and Monroe County residents</span>
-            <span class="hero-badge">Based on guidance from the FTC, FBI, and law enforcement</span>
-          </div>
-        </div>
-      </aside>
-    </section>
+      <button class="text-size" type="button" data-text-size aria-pressed="false">
+        A+ <span data-text-size-label>Larger text</span>
+      </button>
+    </div>
+  </header>
 
-    <main class="layout-main">
-      <!-- LEFT COLUMN: main content -->
-      <div>
-        <!-- Online deals -->
-        <section class="card" id="online-deals">
-          <h2>1. “Too good to be true” online holiday deals</h2>
-          <p>
-            Scammers set up fake online stores and social media ads that look very close to real brands.
-            Around the holidays they push “limited time” deals on toys, electronics, or hot items that
-            are in short supply. Often you never receive the item, or your card is used for other charges.
-          </p>
+  <nav class="site-nav" aria-label="Sections on this page">
+    <div class="wrap">
+      <ul>
+        <li><a class="nav-help" href="#help">I think I was scammed</a></li>
+        <li><a href="#resources">Who to call</a></li>
+        <li><a href="#online-deals">Fake stores</a></li>
+        <li><a href="#travel-rentals">Fake rentals</a></li>
+        <li><a href="#gift-cards">Emergency calls</a></li>
+        <li><a href="#charity">Fake charities</a></li>
+        <li><a href="#delivery">Package texts</a></li>
+      </ul>
+    </div>
+  </nav>
 
-          <h3>Signs it might be a fake store</h3>
-          <ul>
-            <li>The website address is slightly different from the real brand (extra letters or words).</li>
-            <li>Only one way to pay, often with payment apps or wire transfers.</li>
-            <li>Poor spelling or grammar, broken links, or missing contact details.</li>
-            <li>No clear return policy or it is hidden in tiny print.</li>
-          </ul>
+  <section class="hero" id="overview">
+    <div class="wrap">
+      <span class="alert-tag mono rise d1">&#9888; Holiday scam alert</span>
+      <h1 class="display rise d2">Holiday scams are targeting our community</h1>
+      <p class="lede rise d3">
+        Scammers are busiest in November and December. They use fake websites, urgent texts,
+        and phone calls to rush you into paying. This short bulletin shows you what to look for.
+      </p>
 
-          <h3>How to protect yourself</h3>
-          <ul>
-            <li>Type the store name into a search engine with words like “review” or “scam” before you buy.</li>
-            <li>Use a credit card for extra protections, not debit, wire transfer, or gift cards.</li>
-            <li>Be careful with deals that say “today only” or pressure you to act immediately.</li>
-          </ul>
+      <ol class="rules" aria-label="Three rules that stop most scams">
+        <li class="rise d4">
+          <span class="mono">Rule #1</span>
+          <strong>Slow down.</strong>
+          Scammers want you to rush. A real company or relative can wait ten minutes.
+        </li>
+        <li class="rise d5">
+          <span class="mono">Rule #2</span>
+          <strong>Never pay a stranger with gift cards, wire transfers, crypto, or apps like Zelle and Venmo.</strong>
+          That money is almost impossible to get back.
+        </li>
+        <li class="rise d6">
+          <span class="mono">Rule #3</span>
+          <strong>Look it up yourself.</strong>
+          Do not tap the link or call the number in a message. Find the real one on your own.
+        </li>
+      </ol>
 
-          <div class="pill-row">
-            <span class="pill">Non-delivery scams</span>
-            <span class="pill">Social media ads</span>
-            <span class="pill">Cloned websites</span>
-          </div>
-        </section>
-
-        <!-- Travel and rentals -->
-        <section class="card" id="travel-rentals">
-          <h2>2. Travel and holiday rental scams</h2>
-          <p>
-            Winter break, ski weekends, and family trips are prime time for fake rental listings.
-            Scammers copy pictures from real homes and list them on vacation rental sites or classifieds.
-            They may insist you pay quickly to “hold” the booking, then disappear.
-          </p>
-
-          <h3>Warning signs</h3>
-          <ul>
-            <li>Price is much lower than similar properties in the same area.</li>
-            <li>Owner refuses to talk on the phone or video chat.</li>
-            <li>They ask you to pay with wire transfer, gift cards, or payment apps “friends and family.”</li>
-          </ul>
-
-          <h3>How to protect yourself</h3>
-          <ul>
-            <li>Only book through trusted platforms that offer protection and secure payment options.</li>
-            <li>Read reviews carefully and be cautious of listings with no history.</li>
-            <li>Do not send money outside the booking platform, even if they say it will “save you fees.”</li>
-          </ul>
-
-          <div class="pill-row">
-            <span class="pill">Fake listings</span>
-            <span class="pill">Vacation rentals</span>
-            <span class="pill">Upfront payments</span>
-          </div>
-        </section>
-
-        <!-- Gift cards & “family emergency” scams -->
-        <section class="card" id="gift-cards">
-          <h2>3. Gift card and “family emergency” scams</h2>
-          <p>
-            Scammers pretend to be a family member, friend, or even a boss who is in trouble and needs
-            help quickly. They often ask you to buy gift cards or send money in a way that is hard to trace.
-          </p>
-
-          <h3>Common stories scammers use</h3>
-          <ul>
-            <li>“Grandma, it’s me. I’m in trouble and you can’t tell anyone.”</li>
-            <li>“I am stuck while traveling – can you send me gift cards or transfer money?”</li>
-            <li>“I need you to buy gift cards for a work event. Text me the numbers on the back.”</li>
-          </ul>
-
-          <h3>How to protect yourself</h3>
-          <ul>
-            <li>
-              Pause and verify. Call the person on a known phone number, or reach out to another family
-              member to check.
-            </li>
-            <li>Never read gift card numbers over the phone or send pictures of the back of the card.</li>
-            <li>If someone says “you must pay with gift cards,” it is almost always a scam.</li>
-          </ul>
-
-          <div class="pill-row">
-            <span class="pill">Grandparent scams</span>
-            <span class="pill">Impersonation</span>
-            <span class="pill">Urgent requests</span>
-          </div>
-        </section>
-
-        <!-- Charity and donation scams -->
-        <section class="card">
-          <h2>4. Charity and year-end donation scams</h2>
-          <p>
-            Many people are generous around the holidays and at the end of the year. Scammers create
-            fake charities or copy the name of a real one with a slight change to trick donors.
-          </p>
-
-          <h3>Warning signs</h3>
-          <ul>
-            <li>High-pressure requests to donate immediately over the phone or by text.</li>
-            <li>They will not clearly explain how the money will be used.</li>
-            <li>They ask for donations by wire transfer, gift cards, or payment apps only.</li>
-          </ul>
-
-          <h3>How to protect yourself</h3>
-          <ul>
-            <li>Search for the charity’s name plus “review” or “rating” before you give.</li>
-            <li>Go directly to the charity’s official website instead of clicking a link in a message.</li>
-            <li>Keep records of your donations for your own budget and for tax purposes.</li>
-          </ul>
-
-          <div class="pill-row">
-            <span class="pill">Fake charities</span>
-            <span class="pill">Year-end giving</span>
-          </div>
-        </section>
-
-        <!-- Package and delivery texts -->
-        <section class="card" id="delivery">
-          <h2>5. Package and delivery text scams</h2>
-          <p>
-            Around the holidays, many households receive multiple deliveries each week. Scammers send
-            texts or emails that look like they are from UPS, FedEx, USPS, Amazon, or other delivery
-            services with links to “track your package” or pay a small fee.
-          </p>
-
-          <h3>Common red flags</h3>
-          <ul>
-            <li>Messages come from random phone numbers, not official short codes or email addresses.</li>
-            <li>The link looks strange or has extra words or numbers added to it.</li>
-            <li>The message says your package will be returned or destroyed if you do not act immediately.</li>
-          </ul>
-
-          <h3>How to protect yourself</h3>
-          <ul>
-            <li>Do not tap links in texts or emails you did not expect.</li>
-            <li>Go directly to the shipper’s official website or app and type in your tracking number.</li>
-            <li>Delete unexpected messages that ask you to confirm personal or payment information.</li>
-          </ul>
-
-          <div class="pill-row">
-            <span class="pill">Phishing</span>
-            <span class="pill">Package tracking</span>
-            <span class="pill">Delivery scams</span>
-          </div>
-        </section>
-
-        <!-- If you already paid or shared info -->
-        <section class="card" id="help">
-          <h2>6. If you already paid or shared information</h2>
-          <p>
-            If you think you have been scammed, take action quickly. Even if you cannot get all of your
-            money back, acting fast can reduce further harm and help investigators.
-          </p>
-
-          <h3>If you gave a credit or debit card number</h3>
-          <ul>
-            <li>Call the number on the back of your card right away and explain what happened.</li>
-            <li>Ask the bank to review recent charges and block any that are suspicious.</li>
-            <li>Change your online banking password and enable alerts if you have not already.</li>
-          </ul>
-
-          <h3>If you paid with gift cards</h3>
-          <ul>
-            <li>Contact the company that issued the gift card right away and tell them it was used in a scam.</li>
-            <li>Keep the receipt and the card if you still have it.</li>
-            <li>Report the scam to the Federal Trade Commission at ReportFraud.ftc.gov.</li>
-          </ul>
-
-          <h3>If personal information was exposed</h3>
-          <ul>
-            <li>Change passwords on any accounts that use the same login or email.</li>
-            <li>Turn on two-factor authentication where possible.</li>
-            <li>Check your credit reports regularly for accounts you do not recognize.</li>
-          </ul>
-
-          <div class="highlight-box">
-            <strong>If you are not sure what to do next:</strong>
-            talk with your bank, a trusted family member, or local law enforcement. Asking early
-            is always better than waiting.
-          </div>
-        </section>
+      <div class="actions rise d6">
+        <a class="btn btn-yellow" href="#main">Read the bulletin</a>
+        <button class="btn" type="button" data-share>Share with a neighbor</button>
+        <button class="btn" type="button" data-print>Print this page</button>
       </div>
+    </div>
+  </section>
 
-      <!-- RIGHT COLUMN: sidebar -->
-      <aside>
-        <div class="sidebar-card">
-          <div class="sidebar-section-title">Why this page exists</div>
-          <p>
-            Holiday scams affect people in every community. This guide was created to help Pittsford
-            and Monroe County residents recognize common tactics and take simple, practical steps to
-            stay safe.
-          </p>
-        </div>
-
-        <div class="sidebar-card" id="resources">
-          <div class="sidebar-section-title">Local and official resources</div>
-          <p>Use these trusted resources if you want to check a situation or report a scam:</p>
-          <ul class="resources-list">
-            <li>Your bank or credit union – ask to speak with the fraud department.</li>
-            <li>Local police or sheriff’s office non-emergency line.</li>
-            <li>Federal Trade Commission: ReportFraud.ftc.gov.</li>
-            <li>New York State Attorney General consumer protection resources.</li>
-          </ul>
-        </div>
-
-        <div class="sidebar-card">
-          <div class="sidebar-section-title">Share this page</div>
-          <p>
-            The best defense against scams is a community that talks to each other. Consider:
-          </p>
-          <ul>
-            <li>Sharing this guide with neighbors, friends, and family.</li>
-            <li>Mentioning common scams at neighborhood gatherings or PTA meetings.</li>
-            <li>Encouraging older relatives to call a trusted person before sending money.</li>
-          </ul>
-          <p class="tagline">
-            A quick conversation today can save a neighbor from losing money tomorrow.
-          </p>
-        </div>
-      </aside>
-    </main>
-
-    <footer>
-      <div>For educational purposes only. This page does not provide legal advice.</div>
-      <div>Last updated: November 2025</div>
-    </footer>
+  <div class="urgent" role="note">
+    <div class="wrap">
+      <p>
+        <strong>On the phone with someone demanding money right now?</strong>
+        Hang up. Do not pay. Then call your bank using the number on the back of your card.
+      </p>
+      <a class="btn btn-ink" href="#help">What to do next</a>
+    </div>
   </div>
+
+  <main id="main">
+    <div class="wrap section">
+      <h2 class="section-title display">Five holiday scams to watch for</h2>
+
+      <div class="grid">
+        <section class="card" id="online-deals">
+          <span class="badge" aria-hidden="true">1</span>
+          <h3 class="display">Fake online stores</h3>
+          <p>
+            Fake stores and social media ads copy real brands and offer deals that seem too
+            good to be true. You pay, and nothing arrives.
+          </p>
+          <h4 class="label label-warn">Red flags</h4>
+          <ul>
+            <li>The web address is a little different from the real store’s.</li>
+            <li>The price is far lower than anywhere else.</li>
+            <li>You can only pay by payment app, wire transfer, or gift card.</li>
+          </ul>
+          <h4 class="label label-safe">Protect yourself</h4>
+          <ul class="safe">
+            <li>Search for the store’s name plus the word “scam” before you buy.</li>
+            <li>Pay with a credit card. It is the easiest to dispute.</li>
+            <li>Ignore “today only” pressure.</li>
+          </ul>
+        </section>
+
+        <section class="card" id="travel-rentals">
+          <span class="badge" aria-hidden="true">2</span>
+          <h3 class="display">Fake vacation rentals</h3>
+          <p>
+            Scammers copy photos of real homes and post them as rentals. They ask for a quick
+            payment to “hold” your booking, then disappear.
+          </p>
+          <h4 class="label label-warn">Red flags</h4>
+          <ul>
+            <li>The price is far below similar places nearby.</li>
+            <li>The owner will not talk by phone or video.</li>
+            <li>They ask you to pay outside the booking website.</li>
+          </ul>
+          <h4 class="label label-safe">Protect yourself</h4>
+          <ul class="safe">
+            <li>Book through a well-known rental website.</li>
+            <li>Read the reviews. Be careful with brand-new listings.</li>
+            <li>Never pay outside the website, even to “save on fees.”</li>
+          </ul>
+        </section>
+
+        <section class="card" id="gift-cards">
+          <span class="badge" aria-hidden="true">3</span>
+          <h3 class="display">“Family emergency” calls</h3>
+          <p>
+            A caller pretends to be a grandchild, a friend, or your boss who is in trouble and
+            needs money fast. Scammers can now use software to copy a real person’s voice, so
+            the caller may sound exactly like someone you love.
+          </p>
+          <h4 class="label label-warn">What they say</h4>
+          <ul>
+            <li><blockquote>“Grandma, it’s me. I’m in trouble. Please don’t tell anyone.”</blockquote></li>
+            <li><blockquote>“I’m stuck and need money right now.”</blockquote></li>
+            <li><blockquote>“Buy gift cards and read me the numbers on the back.”</blockquote></li>
+          </ul>
+          <h4 class="label label-safe">Protect yourself</h4>
+          <ul class="safe">
+            <li>Hang up. Call the person back on the number you already have.</li>
+            <li>Agree on a family code word, and ask for it.</li>
+            <li>Never read gift card numbers to anyone over the phone.</li>
+          </ul>
+        </section>
+
+        <section class="card" id="charity">
+          <span class="badge" aria-hidden="true">4</span>
+          <h3 class="display">Fake charities</h3>
+          <p>
+            People give generously in December. Scammers invent charities, or use a name that
+            sounds almost like a real one.
+          </p>
+          <h4 class="label label-warn">Red flags</h4>
+          <ul>
+            <li>They push you to give right now.</li>
+            <li>They cannot explain how the money is used.</li>
+            <li>They only take wire transfers, gift cards, or payment apps.</li>
+          </ul>
+          <h4 class="label label-safe">Protect yourself</h4>
+          <ul class="safe">
+            <li>Look the charity up before you give.</li>
+            <li>Donate on the charity’s own website, not through a link.</li>
+            <li>Keep a record of what you gave.</li>
+          </ul>
+        </section>
+
+        <section class="card" id="delivery">
+          <span class="badge" aria-hidden="true">5</span>
+          <h3 class="display">Fake package texts</h3>
+          <p>
+            A text or email says there is a problem with your delivery and asks you to tap a
+            link or pay a small fee. It looks like it came from USPS, UPS, FedEx, or Amazon.
+            It did not.
+          </p>
+          <h4 class="label label-warn">Red flags</h4>
+          <ul>
+            <li>You were not expecting the message.</li>
+            <li>The link looks odd, with extra words or numbers.</li>
+            <li>It says your package will be returned unless you act now.</li>
+          </ul>
+          <h4 class="label label-safe">Protect yourself</h4>
+          <ul class="safe">
+            <li>Do not tap the link.</li>
+            <li>Go to the shipper’s real website and type in your tracking number.</li>
+            <li>Forward the text to <strong>7726</strong> (it spells SPAM), then delete it.</li>
+          </ul>
+        </section>
+
+        <section class="card card-yellow" id="all-year">
+          <span class="badge" aria-hidden="true">!</span>
+          <h3 class="display">True all year</h3>
+          <p>
+            Your bank, Medicare, Social Security, the IRS, and the police will
+            <strong>never</strong> call and ask for any of these.
+          </p>
+          <h4 class="label">They will never tell you to</h4>
+          <ul>
+            <li>Move your money to a “safe” account.</li>
+            <li>Buy gift cards or send crypto.</li>
+            <li>Let them into your computer.</li>
+            <li>Keep the call a secret.</li>
+          </ul>
+          <p class="verdict">If a caller asks for any of these, hang up.</p>
+        </section>
+      </div>
+    </div>
+
+    <div class="wrap section">
+      <section class="card card-help" id="help">
+        <span class="badge" aria-hidden="true">!</span>
+        <h2 class="display">If you already paid or shared information</h2>
+        <p>
+          Act fast, and do not be embarrassed. These scams are run by professionals and fool
+          careful people every day.
+        </p>
+
+        <div class="help-grid">
+          <div>
+            <h3 class="label label-warn">You gave a card or bank number</h3>
+            <ul>
+              <li>Call the number on the back of your card now. Tell them what happened.</li>
+              <li>Ask them to block the charges and send you a new card.</li>
+              <li>Change your online banking password.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="label label-warn">You paid with gift cards</h3>
+            <ul>
+              <li>Call the gift card company now, using the number on the card. They may be able to freeze the money.</li>
+              <li>Keep the card and the receipt.</li>
+              <li>Report it at <a href="https://reportfraud.ftc.gov/">ReportFraud.ftc.gov</a>.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="label label-warn">You shared a password or Social Security number</h3>
+            <ul>
+              <li>Change your passwords, starting with email and banking.</li>
+              <li>Turn on two-step login, where a code is sent to your phone.</li>
+              <li>Follow the plan at <a href="https://www.identitytheft.gov/">IdentityTheft.gov</a>.</li>
+              <li>Check your credit reports for free at <a href="https://www.annualcreditreport.com/">AnnualCreditReport.com</a>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="reminder">
+          <span class="mono">Not sure what to do?</span>
+          Call one of the free helplines under <a href="#resources">Who to call</a>, or talk with
+          a family member you trust. Asking early is always better than waiting.
+        </div>
+      </section>
+    </div>
+
+    <div class="wrap">
+      <section class="resources" id="resources">
+        <h2 class="section-title display">Who to call</h2>
+        <p class="resources-intro">Free, trusted help. On a phone, tap a number to call it.</p>
+
+        <ul class="contacts">
+          <li>
+            <span class="mono">First call</span>
+            <strong>Your bank or credit union</strong>
+            <p>Use the number on the back of your card. Ask for the fraud department.</p>
+          </li>
+          <li>
+            <span class="mono">Local</span>
+            <strong>Lifespan of Greater Rochester</strong>
+            <a class="tel" href="tel:+15852448400">585-244-8400</a>
+            <p>Help for older adults who suspect a scam.</p>
+          </li>
+          <li>
+            <span class="mono">Free helpline</span>
+            <strong>AARP Fraud Watch</strong>
+            <a class="tel" href="tel:+18779083360">877-908-3360</a>
+            <p>Monday to Friday, 8 a.m. to 8 p.m.</p>
+          </li>
+          <li>
+            <span class="mono">New York State</span>
+            <strong>Attorney General</strong>
+            <a class="tel" href="tel:+18007717755">1-800-771-7755</a>
+            <p>Consumer helpline, or visit <a href="https://ag.ny.gov/">ag.ny.gov</a>.</p>
+          </li>
+          <li>
+            <span class="mono">Law enforcement</span>
+            <strong>Monroe County Sheriff</strong>
+            <p>File a report if you lost money. Call 911 if you are in danger.</p>
+          </li>
+          <li>
+            <span class="mono">Report it online</span>
+            <strong><a href="https://reportfraud.ftc.gov/">ReportFraud.ftc.gov</a></strong>
+            <p>Any scam, to the Federal Trade Commission. For online fraud, the FBI: <a href="https://www.ic3.gov/">ic3.gov</a>.</p>
+          </li>
+        </ul>
+
+        <div class="share">
+          <p>Scams lose their power when neighbors talk. Share this bulletin, or print a copy for someone who is not online.</p>
+          <div class="actions">
+            <button class="btn btn-yellow" type="button" data-share>Share this page</button>
+            <button class="btn btn-ink" type="button" data-print>Print a copy</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>For educational purposes only. This bulletin does not provide legal advice.</p>
+      <p>Last updated: November 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll("[data-print]").forEach(function (btn) {
+      btn.addEventListener("click", function () { window.print(); });
+    });
+
+    (function () {
+      var btn = document.querySelector("[data-text-size]");
+      if (!btn) return;
+      var label = btn.querySelector("[data-text-size-label]");
+      function apply(big) {
+        document.documentElement.classList.toggle("big-text", big);
+        btn.setAttribute("aria-pressed", big ? "true" : "false");
+        label.textContent = big ? "Normal text" : "Larger text";
+      }
+      var saved = false;
+      try { saved = localStorage.getItem("bigText") === "1"; } catch (e) {}
+      apply(saved);
+      btn.addEventListener("click", function () {
+        var big = !document.documentElement.classList.contains("big-text");
+        apply(big);
+        try { localStorage.setItem("bigText", big ? "1" : "0"); } catch (e) {}
+      });
+    })();
+
+    document.querySelectorAll("[data-share]").forEach(function (btn) {
+      var label = btn.textContent;
+      btn.addEventListener("click", function () {
+        var data = {
+          title: "Safe Pittsford",
+          text: "A short guide to spotting holiday scams and what to do if you are targeted.",
+          url: "https://safepittsford.com/"
+        };
+        function flash(msg) {
+          btn.textContent = msg;
+          setTimeout(function () { btn.textContent = label; }, 2200);
+        }
+        if (navigator.share) {
+          navigator.share(data).catch(function () {});
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(data.url).then(
+            function () { flash("Link copied"); },
+            function () { flash("safepittsford.com"); }
+          );
+        } else {
+          flash("safepittsford.com");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
